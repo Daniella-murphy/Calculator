@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Calculator</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <script>
+        while (true) {
+            // Prompt for numbers
+            var numbersInput = prompt("Enter numbers separated by spaces:");
+            if (!numbersInput) break; // Exit if input is null
+
+            // Parse numbers
+            var numbers = numbersInput.split(' ').map(Number);
+
+            // Prompt for operation
+            var operation = prompt("Choose an operation: +, -, *, /");
+            if (!operation) break; // Exit if input is null
+
+            // Perform the operation
+            var result;
+            if (operation === '+') {
+                result = numbers.reduce((a, b) => a + b, 0);
+            } else if (operation === '-') {
+                result = numbers.reduce((a, b) => a - b);
+            } else if (operation === '*') {
+                result = numbers.reduce((a, b) => a * b, 1);
+            } else if (operation === '/') {
+                result = numbers.reduce((a, b) => a / b);
+            } else {
+                alert("Invalid operation");
+                continue;
+            }
+
+            // Display result
+            alert("Result: " + result);
+
+            // Ask if the user wants to perform another calculation
+            var again = prompt("Do you want to perform another calculation? (y/n)");
+            if (again.toLowerCase() !== 'y') break;
+        }
+    </script>
+</body>
+</html>
